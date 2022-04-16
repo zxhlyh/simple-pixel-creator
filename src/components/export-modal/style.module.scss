@@ -1,0 +1,61 @@
+.wrapper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 16px;
+    background: #fff;
+    border-radius: 5px;
+}
+
+.title {
+    margin-bottom: 8px;
+}
+
+.canvas {
+    display: none;
+}
+
+.preview {
+    margin-bottom: 8px;
+    background: center center no-repeat;
+    background-size: cover;
+}
+
+.footer {
+    display: flex;
+    margin-bottom: 24px;
+
+    &-item {
+        padding: 0 12px;
+        text-align: center;
+        line-height: 32px;
+        font-size: 14px;
+        cursor: pointer;
+        border-radius: 3px;
+
+        &:hover {
+            color: #fff;
+            background: lightskyblue; 
+        }
+
+        &-active {
+            color: #fff;
+            background: lightskyblue;
+        }
+    }
+}
+
+.download {
+    display: block;
+    margin: 0 auto;
+    padding: 0 12px;
+    width: 68px;
+    line-height: 36px;
+    text-align: center;
+    color: #fff;
+    background: lightskyblue;
+    text-decoration: none;
+    border-radius: 3px;
+    cursor: pointer;
+}

@@ -1,0 +1,44 @@
+.wrapper {
+    display: flex;
+    width: 140px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    height: 36px;
+    cursor: pointer;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+
+    &-active {
+        background: rgba(255, 160, 122, 0.5);
+    }
+
+    &-color {
+        position: relative;
+        width: 12px;
+        height: 12px;
+        border-radius: 2px;
+
+        &-picker {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            z-index: 1;
+        }
+    }
+
+    &:hover {
+        background: rgba(255, 160, 122, 0.5);
+    }
+
+    &-disabled {
+        cursor: not-allowed;
+
+        &:hover {
+            background: transparent;
+        }
+    }
+}

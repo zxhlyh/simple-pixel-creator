@@ -1,0 +1,14 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin: 0 auto;
+    overflow: auto;
+}
+
+.canvas-background,
+.canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
