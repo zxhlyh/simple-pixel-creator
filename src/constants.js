@@ -23,7 +23,6 @@ export const tools = [
         id: TOOL_TYPE.SELECTION,
         icon: '🕸️',
         name: '选区',
-        disabled: true,
     },
     {
         id: TOOL_TYPE.MOVE,
@@ -48,6 +47,38 @@ export const tools = [
         icon: '🇹',
         name: '文字',
         disabled: true,
+    },
+]
+
+export const SELECTION_TYPE = {
+    'BUCKET': 'BUCKET',
+    'COPY': 'COPY',
+    'CUT': 'CUT',
+    'CLEAR': 'CLEAR',
+}
+
+export const selectionOperates = [
+    {
+        id: SELECTION_TYPE.BUCKET,
+        icon: '🪣',
+        name: '填充',
+    },
+    {
+        id: SELECTION_TYPE.COPY,
+        icon: '📒',
+        name: '复制',
+        disabled: true,
+    },
+    {
+        id: SELECTION_TYPE.CUT,
+        icon: '✂️',
+        name: '剪切',
+        disabled: true,
+    },
+    {
+        id: SELECTION_TYPE.CLEAR,
+        icon: '🧹',
+        name: '清除',
     },
 ]
 

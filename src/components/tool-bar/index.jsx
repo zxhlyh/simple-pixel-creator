@@ -1,9 +1,9 @@
-import { useCallback, useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 import s from './style.module.scss';
 import cn from 'classnames';
 import { tools, TOOL_TYPE } from '../../constants';
 import { DrawingContext } from '../../context/drawing-context';
-import { SketchPicker } from 'react-color';
+import ColorPicker from '../color-picker';
 
 const ToolBar = () => {
     const { 
@@ -12,16 +12,6 @@ const ToolBar = () => {
         pencilColor,
         setPencilColor,
     } = useContext(DrawingContext);
-    const [showColorPicker, setShowColorPicker] = useState(false);
-    const handleCloseColorPicker = useCallback(() => {
-        setShowColorPicker(false);
-    }, []);
-
-    useEffect(() => {
-        window.addEventListener('click', handleCloseColorPicker);
-
-        return () => window.removeEventListener('click', handleCloseColorPicker);
-    }, []);
 
     return (
         <div className={s.wrapper}>
@@ -39,25 +29,9 @@ const ToolBar = () => {
                         {item.icon}&emsp;{item.name}&emsp;
                         {
                             item.id === TOOL_TYPE.PENCIL && (
-                                <div 
-                                    className={s.itemColor}
-                                    style={{ backgroundColor: `rgba(${pencilColor.r}, ${pencilColor.g}, ${pencilColor.b}, ${pencilColor.a})` }}
-                                    onClick={(e) => {
-                                        e.stopPropagation();
-                                        setShowColorPicker(true);
-                                    }}>
-                                    {
-                                        showColorPicker && (
-                                            <div className={s.itemColorPicker}>
-                                                <SketchPicker
-                                                    color={pencilColor}
-                                                    onChangeComplete={v => {
-                                                        setPencilColor(v.rgb);
-                                                    }} />
-                                            </div>
-                                        )
-                                    }
-                                </div>
+                                <ColorPicker
+                                    color={pencilColor}
+                                    onColorChange={setPencilColor} />
                             )
                         }
                     </div>

@@ -14,6 +14,16 @@ const initialBoard = {
     height: 60,
 }
 
+export const initialSelection = {
+    startX: 0,
+    startY: 0,
+    endX: 0,
+    endY: 0,
+    status: 0,
+    originStartX: 0,
+    originStartY: 0,
+}
+
 const DrawingContextProvider = ({
     children
 }) => {
@@ -26,6 +36,8 @@ const DrawingContextProvider = ({
     const [pencilColor, setPencilColor] = useState({ r: 247, g: 82, b: 49, a: 1 });
     const [operate, setOperate] = useState('');
     const [exportColorMode, setExportColorMode] = useState(COLOR_OPERATE.ORIGINAL);
+    const [selection, setSelection] = useState(initialSelection);
+    const [bucketColor, setBucketColor] = useState({ r: 248, g: 231, b: 28, a: 100 });
 
     const computePx = () => {
         let px = Math.floor(VIEW_SIZE / (board.width > board.height ? board.width : board.height));
@@ -83,6 +95,10 @@ const DrawingContextProvider = ({
                 pxData,
                 setPxData,
                 initPxData,
+                selection,
+                setSelection,
+                bucketColor,
+                setBucketColor,
             }}>
             {children}
         </DrawingContext.Provider>
