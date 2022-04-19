@@ -8,6 +8,18 @@
 }
 
 .info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
     line-height: 36px;
     text-align: center;
+    font-size: 14px;
+}
+
+.color {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    cursor: pointer;
 }

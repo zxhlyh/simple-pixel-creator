@@ -4,6 +4,7 @@ import { DrawingContext, initialSelection } from '../../context/drawing-context'
 import { TOOL_TYPE, VIEW_SIZE } from '../../constants';
 import SelectionArea from '../selection-area';
 import { getIndexByCoords } from '../../utils';
+import RectArea from '../rect-area';
 
 const DrawingBoard = () => {
     const canvasRef = useRef(null);
@@ -74,16 +75,38 @@ const DrawingBoard = () => {
 
         setPxData(newPxData)
     }
+    const rectAreaDataRef = useRef(null);
+    const getRectAreaData = (rectAreaData) => {
+        rectAreaDataRef.current = rectAreaData;
+    }
+    const pxDataRef = useRef(null);
+    useEffect(() => {
+        pxDataRef.current = pxData;
+    }, [pxData])
+    const handleChangePxDataByRect = () => {
+        const newPxData = pxDataRef.current.slice();
+
+        rectAreaDataRef.current.forEach((row, rowIndex) => {
+            row.forEach((col, colIndex) => {
+                const isEmpty = col[0] === 0 && col[1] === 0 && col[2] === 0 && col[3] === 0;
+                if (!isEmpty) {
+                    newPxData[rowIndex][colIndex] = [...col];
+                }
+            })
+        })
+        setPxData(newPxData);
+    }
     const handleMouseDown = (e) => {
         const { left, top } = canvasRef.current.getBoundingClientRect();
         if (mode === TOOL_TYPE.PENCIL || mode === TOOL_TYPE.RUBBER) {
             isDraggingRef.current = true;
             changeOnePxData(e.clientX - left, e.clientY - top);
         }
-        if (mode === TOOL_TYPE.SELECTION) {
+        if (mode === TOOL_TYPE.SELECTION || mode === TOOL_TYPE.RECT) {
             isDraggingRef.current = true;
             const x = Math.floor((e.clientX - left) / pxSize) * pxSize;
             const y = Math.floor((e.clientY - top) / pxSize) * pxSize;
+
             setSelection({
                 status: 0,
                 startX: x,
@@ -102,7 +125,7 @@ const DrawingBoard = () => {
             if (!isDraggingRef.current) return;
             changeOnePxData(e.clientX - left, e.clientY - top);
         }
-        if (mode === TOOL_TYPE.SELECTION) {
+        if (mode === TOOL_TYPE.SELECTION || mode === TOOL_TYPE.RECT) {
             if (!isDraggingRef.current) return;
             const { originStartX, originStartY } = selection;
             let startX = Math.floor(originStartX / pxSize) * pxSize;
@@ -142,7 +165,7 @@ const DrawingBoard = () => {
                 isDraggingRef.current = false;
             }
         }
-        if (modeRef.current === TOOL_TYPE.SELECTION) {
+        if (modeRef.current === TOOL_TYPE.SELECTION || modeRef.current === TOOL_TYPE.RECT) {
             if (isDraggingRef.current) {
                 isDraggingRef.current = false;
             }
@@ -150,6 +173,10 @@ const DrawingBoard = () => {
                 ...selectionRef.current,
                 status: 1,
             })
+
+            if (modeRef.current === TOOL_TYPE.RECT) {
+                handleChangePxDataByRect()
+            }
         }
     }, []);
 
@@ -178,6 +205,11 @@ const DrawingBoard = () => {
             {
                 mode === TOOL_TYPE.SELECTION && (
                     <SelectionArea />
+                )
+            }
+            {
+                mode === TOOL_TYPE.RECT && (
+                    <RectArea getRectAreaData={getRectAreaData} />
                 )
             }
         </div>

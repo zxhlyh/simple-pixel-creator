@@ -6,6 +6,7 @@ export const TOOL_TYPE = {
     'RECT': 'RECT',
     'CIRCLE': 'CIRCLE',
     'TEXT': 'TEXT',
+    'LINE': 'LINE',
 }
 
 export const tools = [
@@ -25,15 +26,14 @@ export const tools = [
         name: '选区',
     },
     {
-        id: TOOL_TYPE.MOVE,
-        icon: '🛞',
-        name: '移动',
-        disabled: true,
-    },
-    {
         id: TOOL_TYPE.RECT,
         icon: '🎲',
         name: '矩形',
+    },
+    {
+        id: TOOL_TYPE.LINE,
+        icon: '丨',
+        name: '直线',
         disabled: true,
     },
     {
@@ -48,6 +48,12 @@ export const tools = [
         name: '文字',
         disabled: true,
     },
+    {
+        id: TOOL_TYPE.MOVE,
+        icon: '🛞',
+        name: '移动',
+        disabled: true,
+    }, 
 ]
 
 export const SELECTION_TYPE = {

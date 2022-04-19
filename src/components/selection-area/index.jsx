@@ -4,14 +4,12 @@ import cn from 'classnames';
 import { DrawingContext } from '../../context/drawing-context';
 import { selectionOperates, SELECTION_TYPE } from '../../constants';
 import { getIndexByCoords } from '../../utils';
-import ColorPicker from '../color-picker';
 
 const Selection = () => {
     const { 
         selection, 
         pxSize, 
-        bucketColor: { r, g, b, a }, 
-        setBucketColor,
+        pencilColor: { r, g, b, a }, 
         pxData, 
         setPxData 
     } = useContext(DrawingContext);
@@ -62,16 +60,6 @@ const Selection = () => {
                                     }}>
                                     <div className={s.itemIcon}>{item.icon}</div>
                                     <div className={s.itemName}>{item.name}</div>
-                                    {
-                                        item.id === SELECTION_TYPE.BUCKET && (
-                                            <ColorPicker
-                                                color={{ r, g, b, a }}
-                                                onColorChange={(color) => {
-                                                    setBucketColor(color);
-                                                    handleBucket([color.r, color.g, color.b, color.a]);
-                                                }} />
-                                        )
-                                    }
                                 </div>
                             ))
                         }

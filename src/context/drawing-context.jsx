@@ -6,6 +6,7 @@ import {
     MAX_PX_SIZE,
     VIEW_SIZE,
 } from '../constants';
+import { getTwoDimensionsZeroArray } from '../utils'; 
 
 export const DrawingContext = createContext({})
 
@@ -50,7 +51,7 @@ const DrawingContextProvider = ({
     }
 
     const initPxData = () => {
-        setPxData(Array(board.width).fill(0).map(() => Array(board.height).fill(0).map(() => [0, 0, 0, 0])));
+        setPxData(getTwoDimensionsZeroArray(board.width, board.height));
     }
 
     useEffect(() => {
