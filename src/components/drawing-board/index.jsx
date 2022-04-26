@@ -64,8 +64,8 @@ const DrawingBoard = () => {
     }, [pxSize, board]);
     const changeOnePxData = (left, top) => {
         const [x, y] = getIndexByCoords(left, top, pxSize);
-
         const newPxData = pxData.slice();
+
         if (mode === TOOL_TYPE.RUBBER) {
             newPxData[x][y] = [0, 0, 0, 0];
         }
@@ -98,8 +98,15 @@ const DrawingBoard = () => {
     }
     const handleMouseDown = (e) => {
         const { left, top } = canvasRef.current.getBoundingClientRect();
+        if (e.clientX - left > board.width * pxSize) {
+            return;
+        }
+        if (e.clientY - top > board.height * pxSize) {
+            return;
+        }
         if (mode === TOOL_TYPE.PENCIL || mode === TOOL_TYPE.RUBBER) {
             isDraggingRef.current = true;
+
             changeOnePxData(e.clientX - left, e.clientY - top);
         }
         if (mode === TOOL_TYPE.SELECTION || mode === TOOL_TYPE.RECT) {
@@ -121,8 +128,17 @@ const DrawingBoard = () => {
 
     const handleMouseMove = (e) => {
         const { left, top } = canvasRef.current.getBoundingClientRect();
+        if (e.clientX - left > board.width * pxSize) {
+            isDraggingRef.current = false;
+            return;
+        }
+        if (e.clientY - top > board.height * pxSize) {
+            isDraggingRef.current = false;
+            return;
+        }
         if (mode === TOOL_TYPE.PENCIL || mode === TOOL_TYPE.RUBBER) {
             if (!isDraggingRef.current) return;
+            
             changeOnePxData(e.clientX - left, e.clientY - top);
         }
         if (mode === TOOL_TYPE.SELECTION || mode === TOOL_TYPE.RECT) {
@@ -190,7 +206,7 @@ const DrawingBoard = () => {
         <div 
             className={s.wrapper} 
             onMouseDown={handleMouseDown}
-                onMouseMove={handleMouseMove}>
+            onMouseMove={handleMouseMove}>
             <canvas 
                 className={s.canvasBackground}
                 width={board.width * pxSize}

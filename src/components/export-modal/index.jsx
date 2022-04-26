@@ -10,7 +10,6 @@ const ExportModal = () => {
         setOperate,
         exportColorMode,
         setExportColorMode,
-        drawingRef,
         board,
         pxData,
     } = useContext(DrawingContext);
