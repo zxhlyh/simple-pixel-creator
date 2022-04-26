@@ -1,19 +1,19 @@
-.wrapper {
-    display: flex;
-    width: 140px;
-}
+@import '../../common';
 
 .item {
     display: flex;
     align-items: center;
-    padding: 0 16px;
     height: 36px;
     cursor: pointer;
-    border-top-right-radius: 6px;
-    border-bottom-right-radius: 6px;
+
+    &-icon {
+        margin-left: 8px;
+        margin-right: 8px;
+    }
 
     &-active {
-        background: rgba(255, 160, 122, 0.5);
+        background: $tool-color;
+        color: #fff;
     }
 
     &-color {
@@ -28,10 +28,6 @@
             left: 12px;
             z-index: 1;
         }
-    }
-
-    &:hover {
-        background: rgba(255, 160, 122, 0.5);
     }
 
     &-disabled {

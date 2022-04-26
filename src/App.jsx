@@ -10,13 +10,11 @@ import Gallery from "./views/gallery";
 
 const App = () => {
     const { operate } = useContext(DrawingContext);
-    const [showCreatorModal, setShowCreatorModal] = useState(false);
 
     return (
         <div className={s.app}>
             <div className={s.header}>
                 <Link className={s.headerLogo} to="/">
-                    SimplePixelCreator
                 </Link>
                 <div className={s.headerRight}>
                     <Link to="/gallery">Gallery</Link>

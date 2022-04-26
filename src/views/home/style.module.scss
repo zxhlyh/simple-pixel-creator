@@ -5,16 +5,35 @@
 
 .main {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.left,
+.right {
+    width: 100px;
+}
+
+.left {
+    box-shadow: 1px 0 0 0 #dadfe6;
+}
+
+.right {
+    box-shadow: -1px 0 0 0 #dadfe6;
 }
 
 .info {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin: 0 auto;
+    padding: 0 8px;
     line-height: 36px;
     text-align: center;
     font-size: 14px;
+}
+
+.board {
+    flex-grow: 1;
+    background: #999;
 }
 
 .color {

@@ -18,8 +18,10 @@
 
 .preview {
     margin-bottom: 8px;
+    width: 720px;
+    height: 720px;
     background: center center no-repeat;
-    background-size: cover;
+    background-size: contain;
 }
 
 .footer {

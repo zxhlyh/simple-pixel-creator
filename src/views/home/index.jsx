@@ -4,17 +4,18 @@ import ToolBar from '../../components/tool-bar';
 import DrawingBoard from '../../components/drawing-board';
 import OperateBar from '../../components/operate-bar';
 import { DrawingContext } from '../../context/drawing-context';
-import { VIEW_SIZE } from '../../constants';
 import ColorPicker from '../../components/color-picker';
 
 const Home = () => {
     const { board, pencilColor, setPencilColor } = useContext(DrawingContext);
 
     return (
-        <div className={s.home}>
-            <ToolBar />
+        <div className={s.home}> 
+            <div className={s.left}>
+                <ToolBar />
+            </div>
             <div className={s.main}>
-                <div className={s.info} style={{ width: VIEW_SIZE }}>
+                <div className={s.info}>
                     <div className={s.color}>
                         <ColorPicker
                             color={pencilColor}
@@ -27,9 +28,13 @@ const Home = () => {
                         高: {board.height}
                     </div>
                 </div>
-                <DrawingBoard />
+                <div className={s.board}>
+                    <DrawingBoard />
+                </div>
             </div>
-            <OperateBar />
+            <div className={s.right}>
+                <OperateBar />
+            </div>
         </div>
     )
 }

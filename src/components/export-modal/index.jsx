@@ -1,7 +1,7 @@
 import { useRef, useEffect, useContext, useState } from 'react';
 import s from './style.module.scss';
 import cn from 'classnames';
-import { colorOperates, COLOR_OPERATE, VIEW_SIZE } from '../../constants';
+import { colorOperates, COLOR_OPERATE } from '../../constants';
 import { DrawingContext } from '../../context/drawing-context';
 import Modal from '../modal';
 
@@ -68,13 +68,8 @@ const ExportModal = () => {
                 {
                     imgUrl && (
                         <div 
-                            // src={imgUrl}
                             className={s.preview} 
-                            style={{ 
-                                width: VIEW_SIZE,
-                                height: VIEW_SIZE,
-                                backgroundImage: `url(${imgUrl})`
-                            }} 
+                            style={{ backgroundImage: `url(${imgUrl})` }} 
                         />
                     )
                 }

@@ -23,7 +23,8 @@ const ToolBar = () => {
                             setMode(item.id);
                         }}
                     >
-                        {item.icon}&emsp;{item.name}
+                        <div className={s.itemIcon}>{item.icon}</div>
+                        <div className={s.itemName}>{item.name}</div>
                     </div>
                 ))
             }

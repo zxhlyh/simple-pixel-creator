@@ -1,19 +1,17 @@
-.wrapper {
-    width: 140px;
-}
+@import '../../common';
 
 .item {
     display: flex;
     align-items: center;
+    justify-content: center;
     margin-bottom: 8px;
     padding: 0 16px;
     height: 40px;
     cursor: pointer;
-    box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.12), 0 0.5px 1.5px 0 rgba(0, 0, 0, 0.08);
     border-radius: 3px;
 
     &:hover {
-        background: rgba(255, 160, 122, 0.5);
+        color: $tool-color;
     }
 
     &-disabled {
@@ -21,7 +19,7 @@
         cursor: not-allowed;
 
         &:hover {
-            background: transparent;
+            color: #333;
         }
     }
 }

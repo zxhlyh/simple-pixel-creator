@@ -3,16 +3,14 @@ import {
     TOOL_TYPE, 
     COLOR_OPERATE,
     MIN_PX_SIZE,
-    MAX_PX_SIZE,
-    VIEW_SIZE,
 } from '../constants';
 import { getTwoDimensionsZeroArray } from '../utils'; 
 
 export const DrawingContext = createContext({})
 
 const initialBoard = {
-    width: 60,
-    height: 60,
+    width: 70,
+    height: 70,
 }
 
 export const initialSelection = {
@@ -30,7 +28,7 @@ const DrawingContextProvider = ({
 }) => {
     const drawingRef = useRef(null);
     const drawingContextRef = useRef(null);
-    const [board] = useState(initialBoard);
+    const [board, setBoard] = useState(initialBoard);
     const [pxData, setPxData] = useState([]);
     const [pxSize, setPxSize] = useState(MIN_PX_SIZE);
     const [mode, setMode] = useState(TOOL_TYPE.PENCIL);
@@ -41,13 +39,7 @@ const DrawingContextProvider = ({
     const [bucketColor, setBucketColor] = useState({ r: 248, g: 231, b: 28, a: 100 });
 
     const computePx = () => {
-        let px = Math.floor(VIEW_SIZE / (board.width > board.height ? board.width : board.height));
-        if (px < MIN_PX_SIZE) {
-            px = MIN_PX_SIZE;
-        } else if (px > MAX_PX_SIZE) {
-            px = MAX_PX_SIZE;
-        }
-        setPxSize(px);
+        setPxSize(MIN_PX_SIZE);
     }
 
     const initPxData = () => {
@@ -93,6 +85,7 @@ const DrawingContextProvider = ({
                 pxSize,
                 setPxSize,
                 board,
+                setBoard,
                 pxData,
                 setPxData,
                 initPxData,

@@ -1,7 +1,7 @@
 import { useRef, useEffect, useContext, useCallback } from 'react';
 import s from './style.module.scss';
 import { DrawingContext, initialSelection } from '../../context/drawing-context';
-import { TOOL_TYPE, VIEW_SIZE } from '../../constants';
+import { TOOL_TYPE } from '../../constants';
 import SelectionArea from '../selection-area';
 import { getIndexByCoords } from '../../utils';
 import RectArea from '../rect-area';
@@ -61,7 +61,7 @@ const DrawingBoard = () => {
 
     useEffect(() => {
         initBoard();
-    }, [pxSize]);
+    }, [pxSize, board]);
     const changeOnePxData = (left, top) => {
         const [x, y] = getIndexByCoords(left, top, pxSize);
 
@@ -189,7 +189,6 @@ const DrawingBoard = () => {
     return (
         <div 
             className={s.wrapper} 
-            style={{ width: VIEW_SIZE, height: VIEW_SIZE }}
             onMouseDown={handleMouseDown}
                 onMouseMove={handleMouseMove}>
             <canvas 

@@ -99,6 +99,10 @@ export const OPERATE_TYPE = {
 
 export const operates = [
     {
+        id: OPERATE_TYPE.NEW,
+        name: '新建',
+    },
+    {
         id: OPERATE_TYPE.CLEAR,
         name: '清除',
     },
@@ -117,11 +121,6 @@ export const operates = [
     {
         id: OPERATE_TYPE.IMPORT,
         name: '导入',
-        disabled: true,
-    },
-    {
-        id: OPERATE_TYPE.NEW,
-        name: '新建',
         disabled: true,
     },
 ]
@@ -148,7 +147,6 @@ export const colorOperates = [
     },
 ]
 
-export const MIN_PX_SIZE = 12;
-export const MAX_PX_SIZE = 20;
-export const VIEW_SIZE = 720;
+export const MIN_PX_SIZE = 10;
+export const MAX_PX_SIZE = 24;
 export const ZOOM_STEP = 5;
