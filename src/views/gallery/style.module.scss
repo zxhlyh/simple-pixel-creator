@@ -1,7 +1,28 @@
 .gallery {
+    padding: 24px;
     width: 800px;
 }
 
-.title {
-    font-size: 25px;
+.list {
+    display: flex;
+}
+
+.item {
+    margin-right: 24px;
+
+    &-img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 200px;
+        height: 200px;
+        background: center center no-repeat;
+        background-size: contain;
+        border: 1px solid #ccc;
+    }
+
+    &-name {
+        margin-top: 16px;
+        text-align: center;
+    }
 }

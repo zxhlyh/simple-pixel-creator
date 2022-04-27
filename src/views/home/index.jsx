@@ -5,9 +5,12 @@ import DrawingBoard from '../../components/drawing-board';
 import OperateBar from '../../components/operate-bar';
 import { DrawingContext } from '../../context/drawing-context';
 import ColorPicker from '../../components/color-picker';
+import ExportModal from "../../components/export-modal";
+import CreateModal from "../../components/create-modal";
+import { OPERATE_TYPE } from "../../constants";
 
 const Home = () => {
-    const { board, pencilColor, setPencilColor } = useContext(DrawingContext);
+    const { board, pencilColor, setPencilColor, operate } = useContext(DrawingContext);
 
     return (
         <div className={s.home}> 
@@ -35,6 +38,8 @@ const Home = () => {
             <div className={s.right}>
                 <OperateBar />
             </div>
+            {operate === OPERATE_TYPE.EXPORT && <ExportModal />}
+            {operate === OPERATE_TYPE.NEW && <CreateModal />}
         </div>
     )
 }

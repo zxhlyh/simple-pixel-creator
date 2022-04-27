@@ -11,6 +11,10 @@
         margin-right: 8px;
     }
 
+    &-name {
+        font-size: 14px;
+    }
+
     &-active {
         background: $tool-color;
         color: #fff;

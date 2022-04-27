@@ -2,11 +2,12 @@ export const TOOL_TYPE = {
     'PENCIL': 'PENCIL',
     'SELECTION': 'SELECTION',
     'RUBBER': 'RUBBER',
-    'MOVE': 'MOVE',
     'RECT': 'RECT',
     'CIRCLE': 'CIRCLE',
     'TEXT': 'TEXT',
     'LINE': 'LINE',
+    'MIRRORX': 'MIRRORX',
+    'MIRRORY': 'MIRRORY',
 }
 
 export const tools = [
@@ -49,9 +50,15 @@ export const tools = [
         disabled: true,
     },
     {
-        id: TOOL_TYPE.MOVE,
-        icon: '🛞',
-        name: '移动',
+        id: TOOL_TYPE.MIRRORX,
+        icon: '🌊',
+        name: '水平镜像',
+        disabled: true,
+    }, 
+    {
+        id: TOOL_TYPE.MIRRORY,
+        icon: '🌲',
+        name: '垂直镜像',
         disabled: true,
     }, 
 ]
