@@ -35,7 +35,6 @@ export const tools = [
         id: TOOL_TYPE.LINE,
         icon: '丨',
         name: '直线',
-        disabled: true,
     },
     {
         id: TOOL_TYPE.CIRCLE,

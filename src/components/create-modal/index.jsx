@@ -34,7 +34,7 @@ const CreateModal = () => {
 
     return (
         <Modal onCancel={() => setOperate('')}>
-            <div className={s.wrapper}>
+            <div className={s.wrapper} onClick={e => e.stopPropagation()}>
                 <div className={s.title}>新建画板</div>
                 <div className={s.line}>
                     宽: <input type='number' onChange={handleWidthInput} value={width} />

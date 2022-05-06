@@ -5,6 +5,7 @@ import { TOOL_TYPE } from '../../constants';
 import SelectionArea from '../selection-area';
 import { getIndexByCoords } from '../../utils';
 import RectArea from '../rect-area';
+import LineArea from '../line-area';
 
 const DrawingBoard = () => {
     const canvasRef = useRef(null);
@@ -109,7 +110,7 @@ const DrawingBoard = () => {
 
             changeOnePxData(e.clientX - left, e.clientY - top);
         }
-        if (mode === TOOL_TYPE.SELECTION || mode === TOOL_TYPE.RECT) {
+        if (mode === TOOL_TYPE.SELECTION || mode === TOOL_TYPE.RECT || mode === TOOL_TYPE.LINE) {
             isDraggingRef.current = true;
             const x = Math.floor((e.clientX - left) / pxSize) * pxSize;
             const y = Math.floor((e.clientY - top) / pxSize) * pxSize;
@@ -141,7 +142,7 @@ const DrawingBoard = () => {
             
             changeOnePxData(e.clientX - left, e.clientY - top);
         }
-        if (mode === TOOL_TYPE.SELECTION || mode === TOOL_TYPE.RECT) {
+        if (mode === TOOL_TYPE.SELECTION || mode === TOOL_TYPE.RECT || mode === TOOL_TYPE.LINE) {
             if (!isDraggingRef.current) return;
             const { originStartX, originStartY } = selection;
             let startX = Math.floor(originStartX / pxSize) * pxSize;
@@ -181,7 +182,7 @@ const DrawingBoard = () => {
                 isDraggingRef.current = false;
             }
         }
-        if (modeRef.current === TOOL_TYPE.SELECTION || modeRef.current === TOOL_TYPE.RECT) {
+        if (modeRef.current === TOOL_TYPE.SELECTION || modeRef.current === TOOL_TYPE.RECT || modeRef.current === TOOL_TYPE.LINE) {
             if (isDraggingRef.current) {
                 isDraggingRef.current = false;
             }
@@ -190,7 +191,7 @@ const DrawingBoard = () => {
                 status: 1,
             })
 
-            if (modeRef.current === TOOL_TYPE.RECT) {
+            if (modeRef.current === TOOL_TYPE.RECT || modeRef.current === TOOL_TYPE.LINE) {
                 handleChangePxDataByRect()
             }
         }
@@ -225,6 +226,11 @@ const DrawingBoard = () => {
             {
                 mode === TOOL_TYPE.RECT && (
                     <RectArea getRectAreaData={getRectAreaData} />
+                )
+            }
+            {
+                mode === TOOL_TYPE.LINE && (
+                    <LineArea getLineAreaData={getRectAreaData} />
                 )
             }
         </div>
