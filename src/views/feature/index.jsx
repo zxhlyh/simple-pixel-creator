@@ -43,7 +43,7 @@ const features = [
     },
     {
         name: '直线',
-        done: false,
+        done: true,
     },
     {
         name: '圆形',

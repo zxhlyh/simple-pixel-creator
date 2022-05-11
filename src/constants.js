@@ -13,50 +13,41 @@ export const TOOL_TYPE = {
 export const tools = [
     {
         id: TOOL_TYPE.PENCIL,
-        icon: '✏️',
         name: '画笔',
     },
     {
         id: TOOL_TYPE.RUBBER,
-        icon: '🗑',
         name: '橡皮擦',
     },
     {
         id: TOOL_TYPE.SELECTION,
-        icon: '🕸️',
         name: '选区',
     },
     {
         id: TOOL_TYPE.RECT,
-        icon: '🎲',
         name: '矩形',
     },
     {
         id: TOOL_TYPE.LINE,
-        icon: '丨',
         name: '直线',
     },
     {
         id: TOOL_TYPE.CIRCLE,
-        icon: '🍎',
         name: '圆形',
         disabled: true,
     },
     {
         id: TOOL_TYPE.TEXT,
-        icon: '🇹',
         name: '文字',
         disabled: true,
     },
     {
         id: TOOL_TYPE.MIRRORX,
-        icon: '🌊',
         name: '水平镜像',
         disabled: true,
     }, 
     {
         id: TOOL_TYPE.MIRRORY,
-        icon: '🌲',
         name: '垂直镜像',
         disabled: true,
     }, 
@@ -72,24 +63,20 @@ export const SELECTION_TYPE = {
 export const selectionOperates = [
     {
         id: SELECTION_TYPE.BUCKET,
-        icon: '🪣',
         name: '填充',
     },
     {
         id: SELECTION_TYPE.COPY,
-        icon: '📒',
         name: '复制',
         disabled: true,
     },
     {
         id: SELECTION_TYPE.CUT,
-        icon: '✂️',
         name: '剪切',
         disabled: true,
     },
     {
         id: SELECTION_TYPE.CLEAR,
-        icon: '🧹',
         name: '清除',
     },
 ]

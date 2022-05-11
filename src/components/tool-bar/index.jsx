@@ -3,6 +3,7 @@ import s from './style.module.scss';
 import cn from 'classnames';
 import { tools } from '../../constants';
 import { DrawingContext } from '../../context/drawing-context';
+import Icon from '../icon';
 
 const ToolBar = () => {
     const { 
@@ -23,7 +24,7 @@ const ToolBar = () => {
                             setMode(item.id);
                         }}
                     >
-                        <div className={s.itemIcon}>{item.icon}</div>
+                        <Icon className={s.itemIcon} type={item.id.toLowerCase()} />
                         <div className={s.itemName}>{item.name}</div>
                     </div>
                 ))

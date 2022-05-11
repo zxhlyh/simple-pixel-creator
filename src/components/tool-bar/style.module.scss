@@ -15,9 +15,12 @@
         font-size: 14px;
     }
 
+    &:hover {
+        background: $tool-color;
+    }
+
     &-active {
         background: $tool-color;
-        color: #fff;
     }
 
     &-color {

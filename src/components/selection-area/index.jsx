@@ -4,6 +4,7 @@ import cn from 'classnames';
 import { DrawingContext } from '../../context/drawing-context';
 import { selectionOperates, SELECTION_TYPE } from '../../constants';
 import { getIndexByCoords } from '../../utils';
+import Icon from '../icon';
 
 const Selection = () => {
     const { 
@@ -58,7 +59,7 @@ const Selection = () => {
                                             handleBucket([0, 0, 0, 0]);
                                         }
                                     }}>
-                                    <div className={s.itemIcon}>{item.icon}</div>
+                                    <Icon className={s.itemIcon} type={item.id.toLowerCase()} />
                                     <div className={s.itemName}>{item.name}</div>
                                 </div>
                             ))

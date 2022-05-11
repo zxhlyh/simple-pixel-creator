@@ -1,3 +1,5 @@
+@import '../../common';
+
 .wrapper {
     position: absolute;
     background:
@@ -39,7 +41,7 @@
     cursor: pointer;
 
     &:hover {
-        background: rgba(255, 160, 122, 0.5);
+        background: $tool-color;
     }
 
     &-icon,

@@ -32,7 +32,7 @@ const App = () => {
     return (
         <div className={s.app}>
             <div className={s.header}>
-                <div className={s.headerLogo}></div>
+                <div className={s.headerLogo}>SimplePixelCreator</div>
                 <div className={s.headerRight}>
                     {
                         routes.map(route => (

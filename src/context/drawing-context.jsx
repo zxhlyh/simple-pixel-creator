@@ -32,11 +32,10 @@ const DrawingContextProvider = ({
     const [pxData, setPxData] = useState([]);
     const [pxSize, setPxSize] = useState(MIN_PX_SIZE);
     const [mode, setMode] = useState(TOOL_TYPE.PENCIL);
-    const [pencilColor, setPencilColor] = useState({ r: 247, g: 82, b: 49, a: 1 });
+    const [pencilColor, setPencilColor] = useState({ r: 0, g: 102, b: 255, a: 100 });
     const [operate, setOperate] = useState('');
     const [exportColorMode, setExportColorMode] = useState(COLOR_OPERATE.ORIGINAL);
     const [selection, setSelection] = useState(initialSelection);
-    const [bucketColor, setBucketColor] = useState({ r: 248, g: 231, b: 28, a: 100 });
 
     const computePx = () => {
         setPxSize(MIN_PX_SIZE);
@@ -91,8 +90,6 @@ const DrawingContextProvider = ({
                 initPxData,
                 selection,
                 setSelection,
-                bucketColor,
-                setBucketColor,
             }}>
             {children}
         </DrawingContext.Provider>

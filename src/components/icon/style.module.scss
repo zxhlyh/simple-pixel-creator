@@ -1,0 +1,14 @@
+.icon {
+    width: 16px;
+    height: 16px;
+    background: center center no-repeat;
+    background-size: 16px 16px;
+}
+
+$list: bucket circle clear copy cut rubber line mirrorx mirrory pencil rect selection text;
+@each $type in $list {
+    .icon-#{$type} {
+        background-image: url(./assets/#{$type}.svg);
+    }
+}
+

@@ -25,11 +25,9 @@
         margin-left: 16px;
         height: 50px;
         line-height: 50px;
-        color: #333;
-        font-size: 22px;
-        text-decoration: none;
-        background: url(../logo.png) left center no-repeat;
-        background-size: auto 22px;
+        color: $theme-color;
+        font-size: 18px;
+        font-weight: 500;
     }
 
     &-right {
@@ -45,12 +43,12 @@
             text-decoration: none;
 
             &:hover {
-                color: $tool-color;
+                color: $theme-color;
             }
         }
 
         .active {
-            color: $tool-color;
+            color: $theme-color;
         }
     }
 }
